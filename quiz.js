@@ -33,6 +33,10 @@ function argument(click) {
 	characterAlert();
 }
 
+
+
+
+
 // function enter(event) {
 // 	if(event.which === 13){
 // 		argument(event);
@@ -49,6 +53,8 @@ var finishedLog = "";
 // A key that specifies which character to use to build the pine tree.
 // The character to use should be from user input in a <input type="text"> field in the DOM.
 // Once the user enters in a number, and a character, the user can either then just press the enter key (as long as the cursor is in one of the input fields), or click a button that is labeled "Grow your tree" and the tree should be shown in the console. This requires you to add an event listener to the button, as well as an event listener for the enter/return key.
+
+// ***** DONT NEED THIS BECAUSE BUTTON SUBMIT WITHIN THE FORM ALREADY CONNECTS THE ENTER BUTTON **********
 
 // height.addEventListener("keydown", enter);
 // character.addEventListener("keydown", enter);
