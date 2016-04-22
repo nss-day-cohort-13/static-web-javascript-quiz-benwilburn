@@ -13,13 +13,11 @@ button.addEventListener("click", argument);
 function heightAlert () {
 	if (info.height === "" || info.height === " " || info.height === 0) {
 			alert("Both fields must have a value");
-			return false;
-		}
 	}
+}
 function characterAlert () {
 	if (info.character === "" || info.character===" ") {
-		alert("Both fields must have a value")
-		return false;
+		alert("Both fields must have a value");
 	}
 }
 
@@ -32,16 +30,14 @@ function argument(click) {
 		if (info.character.length === 1) {
 			tree(info)
 		};
-	heightAlert();
 	characterAlert();
-
 }
 
-function enter(event) {
-	if(event.which === 13){
-		argument(event);
-	}
-}
+// function enter(event) {
+// 	if(event.which === 13){
+// 		argument(event);
+// 	}
+// }
 
 var finishedLog = "";
 
@@ -54,8 +50,8 @@ var finishedLog = "";
 // The character to use should be from user input in a <input type="text"> field in the DOM.
 // Once the user enters in a number, and a character, the user can either then just press the enter key (as long as the cursor is in one of the input fields), or click a button that is labeled "Grow your tree" and the tree should be shown in the console. This requires you to add an event listener to the button, as well as an event listener for the enter/return key.
 
-height.addEventListener("keydown", enter);
-character.addEventListener("keydown", enter);
+// height.addEventListener("keydown", enter);
+// character.addEventListener("keydown", enter);
 
 
 // If either of the input fields does not have a value in it when the user presses the enter key, or presses the button, then display an alert stating that both fields must have a value.
