@@ -10,20 +10,38 @@ var info = {};
 var button = document.getElementById("click");
 button.addEventListener("click", argument);
 
-function argument(clickEvent) {
-	clickEvent.preventDefault();
+function heightAlert () {
+	if (info.height === "" || info.height === " " || info.height === 0) {
+			alert("Both fields must have a value");
+			return false;
+		}
+	}
+function characterAlert () {
+	if (info.character === "" || info.character===" ") {
+		alert("Both fields must have a value")
+		return false;
+	}
+}
+
+
+function argument(click) {
+	click.preventDefault();
 	info.height = parseInt(height.value);
 	info.character = character.value;
-	tree(info)
+	console.log(info.character.length);
+		if (info.character.length === 1) {
+			tree(info)
+		};
+	heightAlert();
+	characterAlert();
+
 }
 
 function enter(event) {
 	if(event.which === 13){
-		argument("click");
+		argument(event);
 	}
 }
-
-console.log(argument);
 
 var finishedLog = "";
 
@@ -58,6 +76,7 @@ character.addEventListener("keydown", enter);
 
 
 function tree (x) {
+	finishedLog = "";
 	var space = " ";
 	for (var i = 0; i < x.height; i++) {
 		var spaces = (x.height - i) - 1;
