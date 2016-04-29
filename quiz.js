@@ -11,26 +11,27 @@ var button = document.getElementById("click");
 button.addEventListener("click", argument);
 
 function heightAlert () {
-	if (info.height === "" || info.height === " " || info.height === 0) {
-			alert("Both fields must have a value");
-	}
+  if (isNaN(info.height) || info.height === 0) {
+    alert("HEIGHT ALERT: Both fields must have a value");
+  }
 }
+
 function characterAlert () {
-	if (info.character === "" || info.character===" ") {
-		alert("Both fields must have a value");
-	}
+  if (info.character === "" || info.character === " ") {
+  	alert("CHAR ALERT: Both fields must have a value");
+  }
 }
 
 
-function argument(click) {
-	click.preventDefault();
-	info.height = parseInt(height.value);
-	info.character = character.value;
-	console.log(info.character.length);
-		if (info.character.length === 1) {
-			tree(info)
-		};
-	characterAlert();
+function argument(event) {
+  event.preventDefault();
+  info.height = parseInt(height.value, 10);
+  info.character = character.value;
+  heightAlert();
+  characterAlert();
+    if (info.character.length === 1 ) {
+	  tree(info);
+    };
 }
 
 
@@ -78,14 +79,13 @@ var finishedLog = "";
 
 
 function tree (x) {
-	finishedLog = "";
-	var space = " ";
-	for (var i = 0; i < x.height; i++) {
-		var spaces = (x.height - i) - 1;
-		finishedLog += space.repeat(spaces) + x.character.repeat(i + i + 1) + "\n";
-	}
+  var space = " ";
+  for (var i = 0; i < x.height; i++) {
+  	var spaces = (x.height - i) - 1;
+	finishedLog += space.repeat(spaces) + x.character.repeat(i + i + 1) + "\n";
+  }
 
-	console.log(finishedLog);
+console.log(finishedLog);
 };
 
 
