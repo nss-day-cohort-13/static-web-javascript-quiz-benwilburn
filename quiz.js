@@ -10,22 +10,39 @@ var info = {};
 var button = document.getElementById("click");
 button.addEventListener("click", argument);
 
-function argument(clickEvent) {
-	clickEvent.preventDefault();
-	info.height = parseInt(height.value);
-	info.character = character.value;
-	tree(info)
+function heightAlert () {
+  if (isNaN(info.height) || info.height === 0) {
+    alert("HEIGHT ALERT: Both fields must have a value");
+  }
 }
 
-function enter(event) {
-	if(event.which === 13){
-		argument("click");
-	}
+function characterAlert () {
+  if (info.character === "" || info.character === " ") {
+  	alert("CHAR ALERT: Both fields must have a value");
+  }
 }
 
-console.log(argument);
 
-var finishedLog = "";
+function argument(event) {
+  event.preventDefault();
+  info.height = parseInt(height.value, 10);
+  info.character = character.value;
+  heightAlert();
+  characterAlert();
+    if (info.character.length === 1 ) {
+	  	tree(info);
+    }
+}
+
+
+
+
+
+// function enter(event) {
+// 	if(event.which === 13){
+// 		argument(event);
+// 	}
+// }
 
 
 // "ben".repeat( )
@@ -36,8 +53,10 @@ var finishedLog = "";
 // The character to use should be from user input in a <input type="text"> field in the DOM.
 // Once the user enters in a number, and a character, the user can either then just press the enter key (as long as the cursor is in one of the input fields), or click a button that is labeled "Grow your tree" and the tree should be shown in the console. This requires you to add an event listener to the button, as well as an event listener for the enter/return key.
 
-height.addEventListener("keydown", enter);
-character.addEventListener("keydown", enter);
+// ***** DONT NEED THIS BECAUSE BUTTON SUBMIT WITHIN THE FORM ALREADY CONNECTS THE ENTER BUTTON **********
+
+// height.addEventListener("keydown", enter);
+// character.addEventListener("keydown", enter);
 
 
 // If either of the input fields does not have a value in it when the user presses the enter key, or presses the button, then display an alert stating that both fields must have a value.
@@ -58,13 +77,13 @@ character.addEventListener("keydown", enter);
 
 
 function tree (x) {
-	var space = " ";
-	for (var i = 0; i < x.height; i++) {
-		var spaces = (x.height - i) - 1;
+	var finishedLog = "";
+  var space = " ";
+  for (var i = 0; i < x.height; i++) {
+  	var spaces = (x.height - i) - 1;
 		finishedLog += space.repeat(spaces) + x.character.repeat(i + i + 1) + "\n";
-	}
-
-	console.log(finishedLog);
-};
+  }
+  console.log(finishedLog);
+}
 
 
