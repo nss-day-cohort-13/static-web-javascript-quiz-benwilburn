@@ -30,8 +30,8 @@ function argument(event) {
   heightAlert();
   characterAlert();
     if (info.character.length === 1 ) {
-	  tree(info);
-    };
+	  	tree(info);
+    }
 }
 
 
@@ -43,8 +43,6 @@ function argument(event) {
 // 		argument(event);
 // 	}
 // }
-
-var finishedLog = "";
 
 
 // "ben".repeat( )
@@ -79,13 +77,13 @@ var finishedLog = "";
 
 
 function tree (x) {
+	var finishedLog = "";
   var space = " ";
   for (var i = 0; i < x.height; i++) {
   	var spaces = (x.height - i) - 1;
-	finishedLog += space.repeat(spaces) + x.character.repeat(i + i + 1) + "\n";
+		finishedLog += space.repeat(spaces) + x.character.repeat(i + i + 1) + "\n";
   }
-
-console.log(finishedLog);
-};
+  console.log(finishedLog);
+}
 
 
